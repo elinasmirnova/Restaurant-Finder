@@ -5,7 +5,7 @@ import "./App.css";
 import Home from "./pages/Home/Home";
 import Search from "./pages/Search/Search";
 import FavouritesPage from "./pages/Favourites/FavouritesPage";
-import RestaurantPage from "./pages/DetailPage/RestaurantPage"
+import RestaurantPage from "./pages/RestaurantPage/RestaurantPage"
 
 class App extends Component {
   render() {

@@ -1,26 +1,28 @@
-import React, { Component } from 'react';
-import Navbar from '../../components/NavbarSearch/Navbar';
-import { getRestaurants } from '../../api/zomato';
-import styles from './index.module.css';
-import RestaurantCard from '../../components/RestaurantCard/RestaurantCard';
+import React, { Component } from "react";
+import NavbarSearch from "../../components/NavbarSearch/NavbarSearch";
+import { getRestaurants } from "../../api/zomato";
+import styles from "./index.module.css";
+import UpArrow from "../../components/UpArrow";
+import DownArrow from "../../components/DownArrow";
+import RestaurantCard from "../../components/RestaurantCard/RestaurantCard";
 
-const PREFIX = 'search';
+const PREFIX = "search";
 
 class Search extends Component {
   state = {
-    cuisine: '',
-    operation: 'Search',
+    cuisine: "",
+    operation: "Search",
     offset: 0,
     position: undefined,
     restaurants: [],
-    sortBy: 'rating',
-    order: 'desc',
+    sortBy: "rating",
+    order: "desc",
     favourites: [],
     isLoading: false,
   };
 
   componentDidMount() {
-    const favourites = JSON.parse(localStorage.getItem('favourites')) || [];
+    const favourites = JSON.parse(localStorage.getItem("favourites")) || [];
     this.setState({ favourites });
   }
 
@@ -32,21 +34,26 @@ class Search extends Component {
 
   search = (event) => {
     this.setState({
-      operation: 'Fetching location..',
+      restaurants: [],
+      operation: "Fetching location...",
       isLoading: true,
     });
 
     navigator.geolocation.getCurrentPosition(async (position) => {
       this.setState({
-        operation: 'Fetching restaurants...',
+        operation: "Fetching restaurants...",
         position: position,
       });
 
-      const data = await getRestaurants(position, this.state.cuisine, this.state.offset);
+      const data = await getRestaurants(
+        position,
+        this.state.cuisine,
+        this.state.offset
+      );
 
       this.setState({
         restaurants: data,
-        operation: 'Search',
+        operation: "Search",
         isLoading: false,
       });
     });
@@ -89,75 +96,113 @@ class Search extends Component {
   handleClick = (isFavourite, restaurant) => {
     let favourites;
     if (isFavourite) {
-      favourites = this.state.favourites.filter((favourite) => favourite.id !== restaurant.id);
+      favourites = this.state.favourites.filter(
+        (favourite) => favourite.id !== restaurant.id
+      );
     } else {
       favourites = this.state.favourites.concat(restaurant);
     }
     this.setState({ favourites });
-    localStorage.setItem('favourites', JSON.stringify(favourites));
+    localStorage.setItem("favourites", JSON.stringify(favourites));
   };
 
   render() {
+    console.log(this.state.sortBy);
+    console.log(this.state.order);
+    const { sortBy, order } = this.state;
     return (
       <div className={styles[`${PREFIX}_container`]}>
         <div className={styles.navbar}>
-          {' '}
-          <Navbar
+          {" "}
+          <NavbarSearch
             onChange={this.onChange}
             value={this.state.cuisine}
             search={this.search}
-            operation={this.state.operation}
-          ></Navbar>{' '}
+          ></NavbarSearch>{" "}
         </div>
         <div className={styles.sidebar}>
-          <button
-            onClick={() => this.handleSort('rating', 'asc')}
-            className={
-              this.state.sort === 'ratings'
-                ? `${styles.active} ${styles.btn} ${styles['btn-link']}`
-                : `${styles.btn} ${styles['btn-link']}`
-            }
-            type='button'
-          >
-            Ratings
-            <span className={`${styles.sort} ${styles['sorting-up']}`} />
-          </button>
-          <button
-            onClick={() => this.handleSort('cost', 'asc')}
-            className={
-              this.state.sort === 'ratings'
-                ? `${styles.active} ${styles.btn} ${styles['btn-link']}`
-                : `${styles.btn} ${styles['btn-link']}`
-            }
-            type='button'
-          >
-            Average cost for two
-            <span className={`${styles.sort} ${styles['sorting-down']}`} />
-          </button>
+          <p className={styles["filters-label"]}>Filters</p>
+          <div className={styles.ratings}>
+            <p className={styles["filters-text"]}> Ratings </p>
+            <UpArrow
+              onClick={() => {
+                if (this.state.restaurants.length > 0) {
+                  this.handleSort("rating", "asc");
+                }
+              }}
+              className={styles.arrow}
+              fill={ sortBy === "rating" && order === "asc" ? "#ffff00" : "#d50000" }
+              stroke="white"
+              width={30}
+            ></UpArrow>
+            <DownArrow
+              width={30}
+              fill={ sortBy === "rating" && order === "desc" ? "#ffff00" : "#d50000" }
+              stroke="white"
+              onClick={() => {
+                if (this.state.restaurants.length > 0) {
+                  this.handleSort("rating", "desc");
+                }
+              }
+                
+              }
+            ></DownArrow>
+          </div>
+          <div className={styles.cost}>
+            <p className={styles["filters-text"]}> Average cost for two </p>
+            <UpArrow
+              onClick={() => {
+                if (this.state.restaurants.length > 0) {
+                  this.handleSort("cost", "asc");
+                }
+              }
+              }
+              fill={ sortBy === "cost" && order === "asc" ? "#ffff00" : "#d50000" }
+              stroke="white"
+              width={30}
+            ></UpArrow>
+            <DownArrow
+              width={30}
+              fill={ sortBy === "cost" && order === "desc" ? "#ffff00" : "#d50000" }
+              stroke="white"
+              onClick={() => {
+                if (this.state.restaurants.length > 0) {
+                  this.handleSort("cost", "desc");
+                }
+              }
+              }
+            ></DownArrow>
+          </div>
         </div>
         <main>
-          {this.state.isLoading && <div>Loading... </div>}
+          {this.state.isLoading && (
+            <div className={styles["loader-wrapper"]}>
+              {" "}
+              <div className={styles.loader}></div> {this.state.operation}{" "}
+            </div>
+          )}
           {this.state.restaurants.map(({ restaurant }, index) => {
             //restaurant.restaurant = { restaurant } destrukturalizace
             const isFavourite =
-              this.state.favourites.map(({ id }) => id).indexOf(restaurant.id) !== -1;
+              this.state.favourites
+                .map(({ id }) => id)
+                .indexOf(restaurant.id) !== -1;
 
             return (
               <div key={index} className={styles.container}>
-                <button
-                  data-id={restaurant}
-                  onClick={() => this.handleClick(isFavourite, restaurant)}
-                  className={styles['add-button']}
-                >
-                  {isFavourite ? 'Remove' : 'Add'}
-                </button>
-                <RestaurantCard restaurant={restaurant} />
+                <RestaurantCard
+                  restaurant={restaurant}
+                  isFavourite={isFavourite}
+                  handleClick={this.handleClick}
+                />
               </div>
             );
           })}
-          <button onClick={this.handleShowMore.bind(this)} className={styles.btn}>
-            Show more
-          </button>
+          {this.state.restaurants.length !== 0 ? (
+            <button onClick={this.handleShowMore} className={styles.btn}>
+              Show more
+            </button>
+          ) : null}
         </main>
       </div>
     );

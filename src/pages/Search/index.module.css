@@ -2,7 +2,7 @@
   display: grid;
   height: 100vh;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 0.2fr 1fr;
+  grid-template-rows: 0.1fr 1fr;
   grid-template-areas:
     "navbar navbar navbar navbar"
     "sidebar main main main"
@@ -14,12 +14,18 @@
 
 .sidebar {
   grid-area: sidebar;
-  background-color: aqua;
+  background-color: #f5f5f5;
+  border-right: dashed;
+  border-color: #d50000;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
   /* flex-wrap: wrap; */
-  align-items: flex-end;
+  /* align-items: flex-end; */
+  align-items: center;
+  font-family: "Verdana"
+
+
   /* align-content: flex-start; */
 }
 
@@ -39,26 +45,6 @@
   cursor: pointer;
 } */
 
-.add-button {
-  padding: 8px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #5a78c4;
-  color: #ffffff;
-  margin-right: 2rem;
-  margin-top: 2rem;
-}
-
-.add-button:hover {
-  background-color: #ffffff;
-  border: 1px solid #5a78c4;
-  border-radius: 5px;
-  color: #5a78c4;
-}
 
 main {
   grid-area: main;
@@ -76,41 +62,63 @@ main {
 }
 
 .btn {
-  padding: 6px;
+  padding: 10px;
   background: #ddd;
   font-size: 17px;
   border: none;
   cursor: pointer;
-  margin: 0.5rem;
-}
-
-.btn {
-  padding: 8px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-  /* width: 150px; */
   border-radius: 5px;
-  background-color: #5a78c4;
+  background-color: #d50000;
   color: #ffffff;
-  margin-right: 2rem;
+  -webkit-text-fill-color: #ffffff;
   display: flex;
+  margin: 1rem auto;
 }
 
 .btn:hover {
   background-color: #ffffff;
-  border: 1px solid #5a78c4;
+  border: 1px solid #d50000;
   border-radius: 5px;
-  color: #5a78c4;
+  color: #d50000;
+  -webkit-text-fill-color: #d50000;
 }
 
 .active {
   background-color: #ef9a9a;
 }
 
-.btn-link {
-  /* Не знаю с какой целью добавляли,не стал удалять. */
+.ratings, 
+.cost {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    border:1px solid #CCC;
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #ff5252;
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
+
+}
+
+.filters-label {
+  margin-top: 10px;
+  letter-spacing: 1px;
+  color: #d50000; 
+  font-size: 30px;
+  margin-bottom: 2rem;
+  font-family: system-ui;
+  
+}
+
+.filters-text {
+  font-size: 18px;
+  margin-right: 1rem;  
+}
+
+.arrow {
+  border-color: #d50000;
 }
 
 /* Стрелки */
@@ -119,29 +127,29 @@ main {
   margin-top: 0.5rem;
 }
 
-.sorting-up {
-  width: 0;
-  height: 0;
-  border-left: 0.5rem solid transparent;
-  border-right: 0.5rem solid transparent;
-  border-bottom: 1rem solid #ffffff;
-  float: right;
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #d50000; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
 }
 
-.sorting-down {
-  width: 0;
-  height: 0;
-  border-left: 0.5rem solid transparent;
-  border-right: 0.5rem solid transparent;
-  border-top: 1rem solid #ffffff;
-  float: right;
+.loader-wrapper {
+  position: relative;
+  float: left;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #d50000; 
+  -webkit-text-fill-color: #d50000; 
+  text-align: center;
 }
 
-.no-sorting {
-  width: 0;
-  height: 0;
-  border-top: 0.4rem solid transparent;
-  border-right: 0.8rem solid #74808c;
-  border-bottom: 0.4rem solid transparent;
-  float: right;
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
+
+
