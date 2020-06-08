@@ -13,9 +13,9 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/Restaurant-Finder" component={Home} />
-            <Route exact path="/Restaurant-Finder/search" component={Search} />
-            <Route exact path="/Restaurant-Finder/favourites" component={FavouritesPage} />
-            <Route path='/Restaurant-Finder/restaurant/:id' component={RestaurantPage} />
+            <Route exact path="/search" component={Search} />
+            <Route exact path="/favourites" component={FavouritesPage} />
+            <Route path='/restaurant/:id' component={RestaurantPage} />
           </Switch>
         </Router>
       </div>
