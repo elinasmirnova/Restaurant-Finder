@@ -6,7 +6,7 @@ import videoSrc from "../../assets/video-bg.mp4";
 class Home extends Component {
 
   handleClick = () => {
-    this.props.history.push('/search'); //history api
+    this.props.history.push('Restaurant-Finder/search'); //history api
   }
 
   render() {
