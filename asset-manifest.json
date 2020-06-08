@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/Restaurant-Finder/static/css/main.3a83290e.chunk.css",
+    "main.js": "/Restaurant-Finder/static/js/main.34569855.chunk.js",
+    "main.js.map": "/Restaurant-Finder/static/js/main.34569855.chunk.js.map",
+    "runtime-main.js": "/Restaurant-Finder/static/js/runtime-main.564270f1.js",
+    "runtime-main.js.map": "/Restaurant-Finder/static/js/runtime-main.564270f1.js.map",
+    "static/js/2.11840b20.chunk.js": "/Restaurant-Finder/static/js/2.11840b20.chunk.js",
+    "static/js/2.11840b20.chunk.js.map": "/Restaurant-Finder/static/js/2.11840b20.chunk.js.map",
+    "index.html": "/Restaurant-Finder/index.html",
+    "precache-manifest.68cedf96d6e9bb557029092b65fbaa73.js": "/Restaurant-Finder/precache-manifest.68cedf96d6e9bb557029092b65fbaa73.js",
+    "service-worker.js": "/Restaurant-Finder/service-worker.js",
+    "static/css/main.3a83290e.chunk.css.map": "/Restaurant-Finder/static/css/main.3a83290e.chunk.css.map",
+    "static/js/2.11840b20.chunk.js.LICENSE.txt": "/Restaurant-Finder/static/js/2.11840b20.chunk.js.LICENSE.txt",
+    "static/media/index.module.css": "/Restaurant-Finder/static/media/background.40f507d2.jpg",
+    "static/media/food.svg": "/Restaurant-Finder/static/media/food.c0f6d507.svg",
+    "static/media/location-pin.svg": "/Restaurant-Finder/static/media/location-pin.5f096cfa.svg",
+    "static/media/no-image-found.png": "/Restaurant-Finder/static/media/no-image-found.15ffdca4.png",
+    "static/media/restaurant-building.svg": "/Restaurant-Finder/static/media/restaurant-building.be4a3c9d.svg",
+    "static/media/star.svg": "/Restaurant-Finder/static/media/star.09e204ef.svg",
+    "static/media/video-bg.mp4": "/Restaurant-Finder/static/media/video-bg.695c076a.mp4"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.564270f1.js",
+    "static/js/2.11840b20.chunk.js",
+    "static/css/main.3a83290e.chunk.css",
+    "static/js/main.34569855.chunk.js"
+  ]
+}
