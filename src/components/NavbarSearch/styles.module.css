@@ -5,8 +5,6 @@
 .navbar {
   width: 100%;
   background-color: #ff5252;
-  /* border-bottom: dashed;
-  border-color: #d50000; */
 }
 
 .nav-header {
@@ -47,7 +45,6 @@
 
 .search-input {
   padding: 11px;
-  /* margin-top: 8px; */
   font-size: 17px;
   width: 500px;
   margin-right: 2rem;

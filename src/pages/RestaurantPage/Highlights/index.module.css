@@ -14,7 +14,7 @@
   height: 20px;
   /* background-color: #5562eb; */
   border-radius: 50%;
-  border: 1px solid #5562eb;
+  border: 1px solid #d50000;
   left: -25px;
   top: -5px;
 }
@@ -24,7 +24,7 @@
   position: absolute;
   width: 12px;
   height: 8px;
-  border: 1px solid #5562eb;
+  border: 1px solid #d50000;
   border-top: none;
   border-right: none;
   transform: rotateZ(-45deg);

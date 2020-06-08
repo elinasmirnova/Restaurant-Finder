@@ -1,17 +1,15 @@
 import React from "react";
 
 const DownArrow = ({
-//   style = "",
   fill = "#1E201D",
   width = "100%",
-  className = "bla",
+  className = "",
   viewBox = "0 0 31.479 31.479",
   onClick = {}, 
   stroke = {}
 }) => (
   <svg
     width={width}
-    // style={style}
     height={width}
     viewBox={viewBox}
     onClick = {onClick}

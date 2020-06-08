@@ -21,14 +21,19 @@ class Search extends Component {
     isLoading: false,
   };
 
-  componentDidMount() {
+  componentDidMount() { //fetching favourites from localstorage
     const favourites = JSON.parse(localStorage.getItem("favourites")) || [];
     this.setState({ favourites });
   }
 
-  onChange = (event) => {
+  onChange = (event) => { //validation, equivalent to html special chars 
+    const validatedText = event.target.value.replace(/&/g, "&amp;")
+                                            .replace(/</g, "&lt;")
+                                            .replace(/>/g, "&gt;")
+                                            .replace(/"/g, "&quot;")
+                                            .replace(/'/g, "&#039;");
     this.setState({
-      cuisine: event.target.value,
+      cuisine: validatedText,
     });
   };
 
@@ -39,7 +44,7 @@ class Search extends Component {
       isLoading: true,
     });
 
-    navigator.geolocation.getCurrentPosition(async (position) => {
+    navigator.geolocation.getCurrentPosition(async (position) => { //fetching current position 
       this.setState({
         operation: "Fetching restaurants...",
         position: position,
@@ -131,13 +136,13 @@ class Search extends Component {
                 }
               }}
               className={styles.arrow}
-              fill={ sortBy === "rating" && order === "asc" ? "#ffff00" : "#d50000" }
+              fill={ sortBy === "rating" && order === "asc" ? "#ffff00" : "#d50000" } //change color of the clicked arrow 
               stroke="white"
               width={30}
             ></UpArrow>
             <DownArrow
               width={30}
-              fill={ sortBy === "rating" && order === "desc" ? "#ffff00" : "#d50000" }
+              fill={ sortBy === "rating" && order === "desc" ? "#ffff00" : "#d50000" } //change color of the clicked arrow 
               stroke="white"
               onClick={() => {
                 if (this.state.restaurants.length > 0) {
@@ -157,17 +162,17 @@ class Search extends Component {
                 }
               }
               }
-              fill={ sortBy === "cost" && order === "asc" ? "#ffff00" : "#d50000" }
+              fill={ sortBy === "cost" && order === "asc" ? "#ffff00" : "#d50000" } //change color of the clicked arrow 
               stroke="white"
               width={30}
             ></UpArrow>
             <DownArrow
               width={30}
-              fill={ sortBy === "cost" && order === "desc" ? "#ffff00" : "#d50000" }
+              fill={ sortBy === "cost" && order === "desc" ? "#ffff00" : "#d50000" } //change color of the clicked arrow 
               stroke="white"
               onClick={() => {
                 if (this.state.restaurants.length > 0) {
-                  this.handleSort("cost", "desc");
+                  this.handleSort("cost", "desc"); //sorting
                 }
               }
               }

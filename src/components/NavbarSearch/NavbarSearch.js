@@ -15,6 +15,7 @@ class NavbarSearch extends Component {
               onChange={this.props.onChange}
               placeholder="Search.."
               className={styles["search-input"]}
+              autoFocus
             />
             <button
               className={styles["search-button"]}

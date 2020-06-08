@@ -6,7 +6,7 @@ import videoSrc from "../../assets/video-bg.mp4";
 class Home extends Component {
 
   handleClick = () => {
-    this.props.history.push('/search');
+    this.props.history.push('/search'); //history api
   }
 
   render() {
@@ -18,7 +18,7 @@ class Home extends Component {
         </div>
         <div className={styles.main}>
           <video autoPlay loop muted className={styles.video}>
-            <source src={videoSrc} type="video/mp4" />
+            <source src={videoSrc} type="video/mp4" /> 
           </video>
         </div>
         <div className={styles.title}>

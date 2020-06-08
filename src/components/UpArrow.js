@@ -1,7 +1,6 @@
 import React from "react";
 
 const UpArrow = ({
-//   style = "",
   fill = "#1E201D",
   width = "100%",
   className = "",
@@ -11,7 +10,6 @@ const UpArrow = ({
 }) => (
   <svg
     width={width}
-    // style={style}
     onClick = {onClick}
     height={width}
     viewBox={viewBox}

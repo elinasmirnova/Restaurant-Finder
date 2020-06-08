@@ -1,5 +1,6 @@
 const ZOMATO_USER_KEY = "7f899a00ed70e95dd8dbda4c78c3b426";
 
+//Get restaurants according to the typed value in the search input 
 export const getRestaurants = async (
   userLocation,
   cuisine,
@@ -24,6 +25,7 @@ export const getRestaurants = async (
   }
 };
 
+//Find restaurant by id from the url 
 export const findRestaurant = async (id) => {
   try {
     const response = await fetch(`https://developers.zomato.com/api/v2.1/restaurant?res_id=${id}`, {

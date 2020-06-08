@@ -5,7 +5,7 @@ import RestaurantCardFavourite from "../../components/RestaurantCardFavourite/Re
 
 class FavouritesPage extends Component {
   state = {
-    favourites: JSON.parse(localStorage.getItem("favourites")) || [],
+    favourites: JSON.parse(localStorage.getItem("favourites")) || [], //get favourite restaurants from localstorage 
   };
 
   handleClick = (restaurant) => {
@@ -14,7 +14,7 @@ class FavouritesPage extends Component {
       (favourite) => favourite.id !== restaurant.id
     );
     this.setState({ favourites });
-    localStorage.setItem("favourites", JSON.stringify(favourites));
+    localStorage.setItem("favourites", JSON.stringify(favourites)); //update favourites in the localstorage
   };
 
   render() {

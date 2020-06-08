@@ -19,14 +19,8 @@
   border-color: #d50000;
   display: flex;
   flex-direction: column;
-  /* justify-content: flex-start; */
-  /* flex-wrap: wrap; */
-  /* align-items: flex-end; */
   align-items: center;
   font-family: "Verdana"
-
-
-  /* align-content: flex-start; */
 }
 
 .container {
@@ -36,15 +30,6 @@
   padding: 1rem;
   flex-direction: row-reverse;
 }
-
-/* .like {
-  padding: 6px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-} */
-
 
 main {
   grid-area: main;
@@ -121,15 +106,9 @@ main {
   border-color: #d50000;
 }
 
-/* Стрелки */
-.sort {
-  margin-left: 2rem;
-  margin-top: 0.5rem;
-}
-
 .loader {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #d50000; /* Blue */
+  border: 16px solid #f3f3f3; 
+  border-top: 16px solid #d50000; 
   border-radius: 50%;
   width: 120px;
   height: 120px;

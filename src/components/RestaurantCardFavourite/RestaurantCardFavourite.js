@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import styles from "./index.module.css";
-import pathIcon from "../../assets/images/path.svg";
 import foodIcon from "../../assets/images/food.svg";
 import hornIcon from "../../assets/images/horn.png";
 import locationIcon from "../../assets/images/location-pin.svg";
-import ratingLabel from "../../assets/images/rating-label.svg";
 import restaurantBuilding from "../../assets/images/restaurant-building.svg";
 import starIcon from "../../assets/images/star.svg";
-import walletIcon from "../../assets/images/wallet.svg";
 
 const photo = require("../../assets/no-image-found.png");
 
@@ -39,7 +36,7 @@ class RestaurantCardFavourite extends Component {
                   src={restaurantBuilding}
                   alt="Restaurant"
                 />
-                <h3 className={styles["res_name"]}>{restaurant.name}</h3>{" "}
+                <h2 className={styles["res_name"]}>{restaurant.name}</h2>{" "}
               </div>
             </Link>
             <div className={styles["info-container"]}>
@@ -55,7 +52,6 @@ class RestaurantCardFavourite extends Component {
             <p className={styles["res-info__text"]}>
               {restaurant.location["address"]}
             </p>
-            <img className={styles.icon} src={walletIcon} alt="walletIcon" />
             <p className={styles["average-title"]}>Average Cost for two:</p>
             <p className={styles["average-info"]}>
               {restaurant.average_cost_for_two}
