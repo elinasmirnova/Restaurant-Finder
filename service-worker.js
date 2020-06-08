@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Restaurant-Finder/precache-manifest.68cedf96d6e9bb557029092b65fbaa73.js"
+  "/Restaurant-Finder/precache-manifest.fc4914c133ec27be8cff0d54260fdfae.js"
 );
 
 self.addEventListener('message', (event) => {
